@@ -1,7 +1,8 @@
 console.log("JS file is connected to HTML! Woo!");
 
-// == Only one global variable :D == //
+// == Variables for tallys == //
 var cardsInPlay = [];
+var score = 0;
 
 // == Preloader to fix first turn bug == //
 function preload() {
@@ -46,9 +47,13 @@ function isTwoCards() {
 // == Card Matcher == //
 function isMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You've found a match!");
+		alert("You've found a match! +1 point!");
+		score += 1;
+		document.getElementById("score").innerHTML = score;
 	} else {
-		alert("Sorry, try again.");
+		alert("Sorry, try again. -1 point.");
+		score -= 1;
+		document.getElementById("score").innerHTML = score;
 	}
 }
 
