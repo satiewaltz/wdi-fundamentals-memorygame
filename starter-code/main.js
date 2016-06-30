@@ -14,7 +14,7 @@ function preload() {
 }
 
 // == Create and Initialize Board == //
-(function createBoard () {
+(function createBoard() {
 	preload("king.png","queen.png");
 	var cards = ["queen", "queen", "king", "king"];
 	var board = document.getElementById('game-board');
@@ -39,8 +39,7 @@ function isTwoCards() {
 
 	if (cardsInPlay.length === 2) {
 		isMatch(cardsInPlay);
-		imageRemover();
-		cardsInPlay = [];
+		reset();
 	}
 }
 
@@ -58,9 +57,14 @@ function isMatch() {
 }
 
 // == Image Remover Function for clearing board == //
-function imageRemover () {
+function imageRemover() {
 	var images = document.getElementsByTagName("img");
 	while(images.length > 0) {
 		images[0].parentNode.removeChild(images[0]);
 	}
+}
+
+function reset() {
+	imageRemover();
+	cardsInPlay = [];
 }
